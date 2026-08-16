@@ -6,7 +6,7 @@ import { OpenAI } from 'openai';
 dotenv.config({ path: resolve(dirname(fileURLToPath(import.meta.url)), '../.env') });
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_KEY,
 });
 
 async function main() {
