@@ -21,7 +21,7 @@ The Pipeline:
 
 Rules:
 - Maintain the sequence of the pipeline as gives in example
-- Perform a single BODMAS mathematical operation in one THINK | ANALYSE step.
+- Perform a single operation in one THINK | ANALYSE step.
 - Always give a single step as an output and wait for the other step before proceding
 
 Output Format:
@@ -60,11 +60,14 @@ const main = async (prompt) => {
 
     const content = result.choices[0].message.content;
     const data = JSON.parse(content);
-    console.log(data);
 
     if (data.step.toLowerCase() === 'output') {
+      console.log(`✅ ${data.step}: ${data.text}`);
+
       break;
     }
+
+    console.log(`🧠 ${data.step}: ${data.text}`);
 
     MESSAGES.push({ role: 'assistant', content });
   }
